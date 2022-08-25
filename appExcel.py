@@ -11,7 +11,6 @@ import seaborn as sns
 
 
 df = pd.read_csv("world-happiness-report-2021.csv")
-#st.write(df['])
 
 # adding title and text in the app
 
@@ -25,8 +24,8 @@ if select =="All":
 else:   
     filtered_df = df[df['Regional indicator']==select]
 
-score = st.sidebar.slider('Select MAX Ladder Score', min_value=5, max_value=10, value = 10) # Getting the input.
-filtered_df = filtered_df[filtered_df['Ladder score'] < score] # Filtering the dataframe.
+score = st.sidebar.slider('Select min Ladder Score', min_value=5, max_value=10, value = 10) # Getting the input.
+df = df[df['Ladder score'] < score] # Filtering the dataframe.
 
 
 

@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import altair as alt
-import matplotlib.pyplot as plt
 from datetime import datetime
 from datetime import date
 from io import StringIO
@@ -48,23 +47,3 @@ st.write(px.bar(filtered_df, y='Ladder score', x='Country name'))
 
 #correlate data
 corr = filtered_df.corr()
-
-#using matplotlib to define the size
-
-plt.figure(figsize=(8, 8))
-
-#creating the heatmap with seaborn
-
-fig1 = plt.figure()
-ax = sns.heatmap(
-    corr, 
-    vmin=-1, vmax=1, center=0,
-    cmap=sns.diverging_palette(20, 220, n=200),
-    square=True
-)
-ax.set_xticklabels(
-    ax.get_xticklabels(),
-    rotation=45,
-    horizontalalignment='right'
-);
-st.pyplot(fig1)
